@@ -1,1 +1,1 @@
-# web-accessibility-impact-calculator
+# Web Accessibility Impact Calculator
