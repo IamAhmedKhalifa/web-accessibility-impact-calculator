@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Accessibility Impact Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <main class="calculator-wrapper">
+      <div class="calculator-card">
+
+        <header class="card-header">
+
+          <h1>Web Accessibility Impact Calculator</h1>
+        </header>
+
+        <div class="card-content">
+          <form id="calculatorForm" class="calculator-grid">
+
+            <section class="input-section">
+
+              <h2 class="sr-only">Input your business metrics</h2>
+
+              <div class="input-group">
+                <label for="currency">Country/Currency</label>
+                <select id="currency" name="currency">
+                  <option value="GBP">United Kingdom (£)</option>
+                  <option value="USD">United States ($)</option>
+                  <option value="EUR">European Union (€)</option>
+                  <option value="AUD">Australia (A$)</option>
+                  <option value="CAD">Canada (C$)</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <label for="visitors">Monthly Website Visitors
+                  <span class="tooltip-trigger" tabindex="0" aria-labelledby="More information about monthly visitors">
+                        <span class="tooltip">Total number of unique visitors to your website per month (e.g 10000)</span>
+                  ?
+                  </span>
+                </label>
+                <input type="number" id="visitors" name="visitors" min="0">
+              </div>
+
+              <div class="input-group">
+                <label for="orderValue">Average Order Value
+                  <span class="tooltip-trigger" tabindex="0" aria-labelledby="More information about average order value">
+                        <span class="tooltip">Average amount spent per transaction (e.g 100)</span>
+                  ?
+                  </span>
+                </label>
+                <input type="number" id="orderValue" name="orderValue" min="0">
+              </div>
+
+              <div class="input-group">
+                <label for="conversion" id="conversion-label">Current Conversion Rate % (e.g. 2.5) <span class="tooltip-trigger" tabindex="0" aria-labelledby="conversion-label conversion-tooltip">
+                  ?
+                  <span class="tooltip" id="conversion-tooltip">Percentage of visitors who complete a purchase</span>
+                  </span></label>
+                <input type="number" id="conversion" name="conversion" min="0" max="100" step="0.1" aria-labelledby="conversion-label conversion-hint">
+
+              </div>
+            </section>
+
+            <section class="results-section">
+
+              <h2>Potential Impact</h2>
+
+              <div class="results-card">
+
+                <h3>Potential Traffic</h3>
+                <dl>
+                  <div class="result-row">
+                    <dt>Monthly Traffic:</dt>
+                    <dd id="monthlyTraffic">0 visitors</dd>
+                  </div>
+                  <div class="result-row">
+                    <dt>Yearly Traffic:</dt>
+                    <dd id="yearlyTraffic">0 visitors</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="results-card">
+
+                <h3>Potential Revenue</h3>
+                <dl>
+                  <div class="result-row">
+                    <dt>Monthly Revenue:</dt>
+                    <dd id="monthlyRevenue">£0</dd>
+                  </div>
+                  <div class="result-row">
+                    <dt>Yearly Revenue:</dt>
+                    <dd id="yearlyRevenue">£0</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div id="impactBreakdown" class="impact-breakdown">
+                <!-- Breakdown sections will be populated by JavaScript -->
+              </div>
+            </section>
+            <div class="button-container">
+              <button type="button" id="calculateButton" class="calculate-button">Calculate Impact</button>
+            </div>
+          </form>
+
+          <footer class="calculator-footer">
+            <ul aria-label="Important notes about the calculations">
+              <li>* Based on country-specific disability statistics and accessibility improvement data</li>
+              <li>* Results are estimates and actual results may vary based on implementation quality and other factors</li>
+              <li>* Calculations assume a 15% improvement in conversion rate with proper accessibility implementation</li>
+            </ul>
+          </footer>
+        </div>
+      </div>
+    </main>
+    <script src="calculator.js"></script>
+  </body>
+</html>
